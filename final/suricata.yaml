@@ -1,0 +1,78 @@
+%YAML 1.1
+---
+# Suricata configuration file
+
+# Global configuration
+vars:
+  # Add global variables here if needed
+
+defaults:
+  # Default configuration settings
+
+  # Network settings
+  # - interface: lo
+  # - pcap-file:
+
+  # Logging settings
+  - stats:
+      enabled: yes
+      filename: suricata.stats
+      append: no
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: eve.json
+      # Add other logging configurations as needed
+
+  # Threshold settings
+  - threshold:
+      enabled: yes
+      # Add threshold settings as needed
+
+# Detection engine configuration
+detection:
+  # Rule files
+  - rules-files:
+      - suricata_rules/dns_heap_overflow.rules
+      - suricata_rules/dns_invalid_name.rules
+      - suricata_rules/dns_invalid_size.rules
+      # Add more rule files as needed
+
+  # Rule options
+  - rule-options:
+      # Add rule options if needed
+
+# Stream processing configuration
+stream:
+  # Stream configuration options
+  # Add stream options here if needed
+
+# Flow configuration
+flow:
+  # Flow configuration options
+  # Add flow options here if needed
+
+# Preprocessors configuration
+preprocessors:
+  # Preprocessors configuration options
+  # Add preprocessors options here if needed
+
+# Outputs configuration
+outputs:
+  - stats:
+    enabled: yes
+    filename: suricata.stats
+    append: no
+  - stats:
+    enabled: yes
+    filename: suricata.stats
+    append: no
+  # Output configurations
+  # Add output options here if needed
+
+pcap-file:
+  - /Users/jbedette/code/psu/final-netsec/final/pcaps/dns_caa_records.pcap
+  - /Users/jbedette/code/psu/final-netsec/final/pcaps/dns_over_udp_with_edns_5000_bytes.pcap
+  - /Users/jbedette/code/psu/final-netsec/final/pcaps/dns_over_udp_with_edns.pcap
+  - /Users/jbedette/code/psu/final-netsec/final/pcaps/dns_variant_1.pcap
+  - /Users/jbedette/code/psu/final-netsec/final/pcaps/dns_variant_2.pcap
